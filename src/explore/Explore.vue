@@ -94,6 +94,8 @@ const icons = {};
   'pictorialBar',
   'themeRiver',
   'calendar',
+  'matrix',
+  'chord',
   'custom',
   'sunburst',
   'tree',
@@ -143,6 +145,9 @@ export default {
         for (let i = 0; i < list.length; i++) {
           const example = list[i];
           if (BLACK_MAP.hasOwnProperty(example.id)) {
+            continue;
+          }
+          if (example.noExplore) {
             continue;
           }
           if (typeof example.category === 'string') {
@@ -261,7 +266,6 @@ export default {
       if (!activeItem) {
         return;
       }
-      activeItem.click();
       this.scrollNav(activeItem);
     },
     onActiveNavChanged(event, currentItem) {
@@ -326,6 +330,8 @@ $pd-lg: 20px;
   right: 0;
   bottom: 0;
   left: 0;
+
+  display: flex;
   overflow-y: auto;
 
   ::-webkit-scrollbar {
@@ -356,8 +362,8 @@ $pd-lg: 20px;
 }
 
 #explore-container {
-  margin-left: $chart-nav-width + 20px;
   padding: 10px 10px;
+  flex: 1;
   // background-color: $clr-bg;
 }
 
@@ -372,6 +378,7 @@ $pd-lg: 20px;
     color: #464646;
     font-size: 20px;
   }
+
   .chart-type-head span {
     font-size: 16px;
     padding-left: 5px;
@@ -384,7 +391,6 @@ $pd-lg: 20px;
   position: sticky;
   left: 0;
   top: 0;
-  float: left;
   height: calc(100%);
   width: $chart-nav-width;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -409,6 +415,7 @@ $pd-lg: 20px;
     // color: #fff;
     text-transform: uppercase;
   }
+
   .el-switch__label.is-active {
     color: #181432;
   }
@@ -487,6 +494,7 @@ $pd-lg: 20px;
   #left-container {
     display: none;
   }
+
   #explore-container {
     margin-left: 0;
   }

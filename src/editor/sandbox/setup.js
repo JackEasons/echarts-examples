@@ -252,6 +252,8 @@ function setup(isShared) {
       appEnv = {};
       appStore = store;
 
+      initInternalAPI(appEnv);
+
       try {
         // run the code
         const compiledCode = store.runCode
@@ -274,6 +276,7 @@ function setup(isShared) {
             'setTimeout',
             'setInterval',
             'ROOT_PATH',
+            'CDN_PATH',
             '__ECHARTS_EXAMPLE_RANDOM__',
             'top',
             'parent',
@@ -295,6 +298,7 @@ function setup(isShared) {
             setTimeout,
             setInterval,
             store.cdnRoot,
+            store.cdnPath,
             echartsExampleRandom,
             // prevent someone from trying to close the parent window via top/parent.close()
             // or any other unexpected and dangerous behaviors
@@ -317,6 +321,7 @@ function setup(isShared) {
             'setTimeout',
             'setInterval',
             'ROOT_PATH',
+            'CDN_PATH',
             '__ECHARTS_EXAMPLE_RANDOM__',
             runCode
           );
@@ -327,6 +332,7 @@ function setup(isShared) {
             setTimeout,
             setInterval,
             store.cdnRoot,
+            store.cdnPath,
             echartsExampleRandom
           );
         }
@@ -362,8 +368,42 @@ function setup(isShared) {
         });
         document.body.append(gui.domElement);
 
+        initDatGUITooltip(gui.domElement);
+
         const configParams = appEnv.configParameters || {};
         const config = appEnv.config;
+
+        // If using seletion/options, dat.GUI always convert value into string. e.g., convert
+        // `true`, `false` to `'true'`, `'false'`, or convert `10`, `20` to `'10'`, `'20'`.
+        // This probably bothers users. Therefore, we need to convert it back to the raw value type.
+        function revertToRawValueForOptions(datGUIController, datGUINewValue) {
+          var name = datGUIController.property;
+          var configVal = configParams[name];
+          if (!configVal || !configVal.options || !config.hasOwnProperty(name)) {
+            return;
+          }
+          // Considered `configVal.options` can be either
+          // `[value1, value2, ...]` or `{key1: value2, key2: value2, ...}`.
+          echarts.util.each(configVal.options, function (rawVal) {
+            if ('' + rawVal === datGUINewValue) {
+              config[name] = rawVal;
+            }
+          });
+        }
+
+        const onChange = config.onChange
+          ? function (newValue) {
+            revertToRawValueForOptions(this, newValue);
+            config.onChange();
+          }
+          : null;
+        const onFinishChange = config.onFinishChange
+          ? function (newValue) {
+            revertToRawValueForOptions(this, newValue);
+            config.onFinishChange();
+          }
+          : null;
+
         for (const name in config) {
           const value = config[name];
           if (name !== 'onChange' && name !== 'onFinishChange') {
@@ -393,14 +433,122 @@ function setup(isShared) {
             if (!controller) {
               controller = gui[isColor ? 'addColor' : 'add'](config, name);
             }
-            config.onChange && controller.onChange(config.onChange);
-            config.onFinishChange &&
-              controller.onFinishChange(config.onFinishChange);
+            onChange && controller.onChange(onChange);
+            onFinishChange && controller.onFinishChange(onFinishChange);
           }
-        }
+        } // End of `for (const name in config)`
       }
     }
   };
+
+  /**
+   * Add a tooltip for long label that truncated by dat.GUI.
+   */
+  function initDatGUITooltip(guiEl) {
+    // Add a tooltip for long label that truncated by dat.GUI
+    const tooltip = document.createElement('div');
+    tooltip.className = 'dat-gui-tooltip';
+    document.body.appendChild(tooltip);
+    $(tooltip).css({
+      display: 'none',
+      position: 'absolute',
+      zIndex: 9000,
+      padding: '5px 10px',
+      backgroundColor: '#333',
+      color: '#fff',
+      borderRadius: '4px',
+      fontSize: '12px',
+      pointerEvents: 'none',
+    });
+
+    guiEl.addEventListener('mouseover', function (ev) {
+      const target = ev.target;
+      if (!target) {
+        return;
+      }
+      const labelText = $(target).filter('.property-name').add($(target).find('.property-name')).first().text();
+      if (!labelText) {
+        return;
+      }
+      $(tooltip).text(labelText);
+      $(tooltip).css({
+        display: 'block',
+        left: ev.pageX + 10 + 'px',
+        top: ev.pageY + 10 + 'px',
+      });
+    });
+
+    guiEl.addEventListener('mouseout', function () {
+      $(tooltip).css({display: 'none'});
+    });
+
+    guiEl.addEventListener('mousemove', function (ev) {
+      tooltip.style.left = ev.pageX + 10 + 'px';
+      tooltip.style.top = ev.pageY + 10 + 'px';
+    });
+  }
+
+  /**
+   * This is some features that requires echarts internal API.
+   * Inappropriate to public to users for production usage, but useful in demo.
+   * Usage in examples code:
+   * ```js
+   * app.__internalAPI.xxx(myChart, otherArgs);
+   * ```
+   */
+  function initInternalAPI(appEnv) {
+    const internalAPI = appEnv.__internalAPI = {};
+
+    /**
+     * @param {{
+     *  mainType: ComponentMainType;
+     *  subType?: ComponentSubType;
+     *  index?: number | number[];
+     *  id?: OptionId | OptionId[];
+     *  name?: OptionName | OptionName[];
+     * }} queryParam For example:
+     *    {mainType: 'series', subType: 'map', id: 'xxx'}
+     *    {mainType: 'geo', id: 'xxx'}
+     */
+    internalAPI.retrieveViewCoordSysRects = function (myChart, queryParam) {
+      if (!queryParam
+        || (
+          queryParam.index == null
+          && queryParam.id == null
+          && queryParam.name == null
+        )
+      ) {
+        throw new Error('queryParam must have either index, id or name.');
+      }
+      const component = myChart.getModel().queryComponents(queryParam)[0];
+      if (!component) {
+        throw new Error('No component found for the given queryParam.');
+      }
+      const viewCoordSys = component.coordinateSystem;
+      if (!viewCoordSys) {
+        throw new Error('The component does not have a view coordinate system.');
+      }
+      ecInternalAPIExistingCheck(viewCoordSys, 'getViewRect');
+      ecInternalAPIExistingCheck(viewCoordSys, 'getBoundingRect');
+
+      const viewRect = viewCoordSys.getViewRect().clone();
+      const contentBoundingRect = viewCoordSys.getBoundingRect().clone();
+      const trans = viewCoordSys.getComputedTransform();
+      if (trans) {
+        contentBoundingRect.applyTransform(trans);
+      }
+      return {
+        viewRect,
+        contentBoundingRect
+      };
+    };
+
+    function ecInternalAPIExistingCheck(host, apiName) {
+      if (!host[apiName]) {
+        throw new Error(`The internal API \`${apiName}\` probably have breaking changes.`);
+      }
+    }
+  }
 
   echarts.registerPreprocessor(function (option) {
     if (appStore.enableDecal) {

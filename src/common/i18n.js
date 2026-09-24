@@ -8,7 +8,8 @@ export default {
       errorInEditor: 'Errors exist in code!',
       infiniteLoopInEditor: 'Potential infinite loops exist in code!',
       potentialRedirectionInEditor: 'Potential redirection exists in code!',
-      chartOK: 'Chart has been generated successfully, ',
+      chartOK: 'Chart has been generated in ',
+      bannerVersionRequire: 'Require ECharts',
 
       darkMode: 'Dark Mode',
       enableDecal: 'Decal Pattern',
@@ -108,6 +109,8 @@ export default {
       pictorialBar: 'PictorialBar',
       themeRiver: 'ThemeRiver',
       calendar: 'Calendar',
+      matrix: 'Matrix',
+      chord: 'Chord',
       custom: 'Custom',
 
       dataset: 'Dataset',
@@ -138,6 +141,7 @@ export default {
       infiniteLoopInEditor: '编辑器内容可能存在无限循环！',
       potentialRedirectionInEditor: '编辑器内容可能存在重定向代码！',
       chartOK: '图表已生成, ',
+      bannerVersionRequire: '依赖 ECharts',
 
       darkMode: '深色模式',
       enableDecal: '无障碍花纹',
@@ -237,6 +241,8 @@ export default {
       pictorialBar: '象形柱图',
       themeRiver: '主题河流图',
       calendar: '日历坐标系',
+      matrix: '矩阵坐标系',
+      chord: '和弦图',
       custom: '自定义系列',
 
       dataset: '数据集',

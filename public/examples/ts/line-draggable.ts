@@ -93,8 +93,12 @@ setTimeout(function () {
         },
         invisible: true,
         draggable: true,
-        ondrag: function (dx: number, dy: number) {
+        ondrag: function () {
           onPointDragging(dataIndex, [(this as any).x, (this as any).y]);
+        },
+        ondragend: function () {
+          // Axis bounds may change, so move the drag handles to the updated points.
+          updatePosition();
         },
         onmousemove: function () {
           showTooltip(dataIndex);

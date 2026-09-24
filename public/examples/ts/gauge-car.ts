@@ -1,7 +1,7 @@
 /*
 title: Gauge Car
 category: gauge
-titleCN: Gauge Car
+titleCN: 汽车仪表盘
 difficulty: 8
 */
 
@@ -329,6 +329,7 @@ option = {
           b: {
             fontWeight: 600,
             fontFamily: 'Arial',
+            fontSize: 12,
             lineHeight: 22,
             color: '#fff',
             align: 'left'
@@ -431,6 +432,7 @@ option = {
           b: {
             fontWeight: 600,
             fontFamily: 'Arial',
+            fontSize: 12,
             color: '#fff'
           }
         }

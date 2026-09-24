@@ -1,6 +1,10 @@
 
 /* eslint-disable */
-// THIS FILE IS GENERATED, DON'T MODIFY */
+
+// -------------------------------------------------
+// ! THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT !
+// -------------------------------------------------
+
 export default [
   {
     "category": [
@@ -59,6 +63,18 @@ export default [
   },
   {
     "category": [
+      "chord"
+    ],
+    "id": "chord-simple",
+    "ts": true,
+    "tags": [],
+    "title": "Basic Chord",
+    "titleCN": "基础和弦图",
+    "difficulty": 0,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "dataset",
       "bar",
       "transform"
@@ -111,7 +127,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Referer of a Website",
-    "titleCN": "某站点用户Access From",
+    "titleCN": "某站点用户访问来源",
     "difficulty": 0
   },
   {
@@ -217,6 +233,18 @@ export default [
   },
   {
     "category": [
+      "chord"
+    ],
+    "id": "chord-minAngle",
+    "ts": true,
+    "tags": [],
+    "title": "Chord minAngle",
+    "titleCN": "和弦图 minAngle",
+    "difficulty": 1,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "candlestick"
     ],
     "id": "custom-ohlc",
@@ -290,8 +318,20 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Stacked Line Chart",
-    "titleCN": "折线图堆叠",
+    "titleCN": "堆叠折线图",
     "difficulty": 1
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-simple",
+    "ts": true,
+    "tags": [],
+    "title": "Simple Matrix",
+    "titleCN": "简单的矩阵图",
+    "difficulty": 1,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -378,7 +418,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Anscomb's quartet",
-    "titleCN": "Anscomb's quartet",
+    "titleCN": "安斯库姆四重奏",
     "difficulty": 1
   },
   {
@@ -538,17 +578,6 @@ export default [
   },
   {
     "category": [
-      "scatter"
-    ],
-    "id": "effectScatter-map",
-    "ts": true,
-    "tags": [],
-    "title": "Air Quality",
-    "titleCN": "全国主要城市空气质量",
-    "difficulty": 2
-  },
-  {
-    "category": [
       "gauge"
     ],
     "id": "gauge-speed",
@@ -612,6 +641,66 @@ export default [
     "title": "Temperature Change in the Coming Week",
     "titleCN": "未来一周气温变化",
     "difficulty": 2
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-correlation-heatmap",
+    "ts": true,
+    "tags": [],
+    "title": "Correlation Matrix (Heatmap)",
+    "titleCN": "相关矩阵（热力图）",
+    "difficulty": 2,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-correlation-scatter",
+    "ts": true,
+    "tags": [],
+    "title": "Correlation Matrix (Scatter)",
+    "titleCN": "相关矩阵（散点图）",
+    "difficulty": 2,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-covariance",
+    "ts": true,
+    "tags": [],
+    "title": "Covariance Matrix",
+    "titleCN": "协方差矩阵",
+    "difficulty": 2,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-graph",
+    "ts": true,
+    "tags": [],
+    "title": "Graph Chart in Matrix",
+    "titleCN": "矩阵布局下的关系图",
+    "difficulty": 2,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-pie",
+    "ts": true,
+    "tags": [],
+    "title": "Pie Charts in Matrix",
+    "titleCN": "矩阵布局下的饼图",
+    "difficulty": 2,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -783,6 +872,18 @@ export default [
     "category": [
       "bar"
     ],
+    "id": "bar-breaks-simple",
+    "ts": true,
+    "tags": [],
+    "title": "Bar Chart with Axis Breaks",
+    "titleCN": "断轴上的柱状图",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "bar"
+    ],
     "id": "bar-gradient",
     "ts": true,
     "tags": [],
@@ -880,6 +981,18 @@ export default [
   },
   {
     "category": [
+      "chord"
+    ],
+    "id": "chord-lineStyle-color",
+    "ts": true,
+    "tags": [],
+    "title": "Chord lineStyle.color",
+    "titleCN": "和弦图边的颜色",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "custom"
     ],
     "id": "custom-bar-trend",
@@ -930,7 +1043,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Cycle Plot",
-    "titleCN": "Cycle Plot",
+    "titleCN": "周期图",
     "difficulty": 3
   },
   {
@@ -1004,6 +1117,18 @@ export default [
   },
   {
     "category": [
+      "map",
+      "graph"
+    ],
+    "id": "geo-graph",
+    "ts": true,
+    "tags": [],
+    "title": "Geo Graph",
+    "titleCN": "地理坐标系上的关系图",
+    "difficulty": 3
+  },
+  {
+    "category": [
       "graph"
     ],
     "id": "graph-force",
@@ -1022,30 +1147,6 @@ export default [
     "tags": [],
     "title": "Hide Overlapped Label",
     "titleCN": "关系图自动隐藏重叠标签",
-    "difficulty": 3
-  },
-  {
-    "category": [
-      "heatmap"
-    ],
-    "id": "heatmap-bmap",
-    "ts": false,
-    "tags": [
-      "bmap"
-    ],
-    "title": "Heatmap on Baidu Map Extension",
-    "titleCN": "热力图与百度地图扩展",
-    "difficulty": 3
-  },
-  {
-    "category": [
-      "heatmap"
-    ],
-    "id": "heatmap-map",
-    "ts": false,
-    "tags": [],
-    "title": "Air Qulity",
-    "titleCN": "全国主要城市空气质量",
     "difficulty": 3
   },
   {
@@ -1069,6 +1170,43 @@ export default [
     "title": "Distribution of Electricity",
     "titleCN": "一天用电量分布",
     "difficulty": 3
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-confusion",
+    "ts": true,
+    "tags": [],
+    "title": "Confusion Matrix",
+    "titleCN": "混淆矩阵",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-grid-layout",
+    "ts": false,
+    "tags": [],
+    "title": "Responsive grid layout based on matrix",
+    "titleCN": "矩阵中响应式网格布局",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "matrix",
+      "candlestick"
+    ],
+    "id": "matrix-stock",
+    "ts": true,
+    "tags": [],
+    "title": "Matrix Stock Application",
+    "titleCN": "股市矩阵图",
+    "difficulty": 3,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -1140,6 +1278,18 @@ export default [
     "category": [
       "scatter"
     ],
+    "id": "scatter-jitter",
+    "ts": true,
+    "tags": [],
+    "title": "Scatter with Jittering",
+    "titleCN": "带抖动的散点图",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "scatter"
+    ],
     "id": "scatter-punchCard",
     "ts": true,
     "tags": [],
@@ -1177,7 +1327,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Monochrome Sunburst",
-    "titleCN": "Monochrome Sunburst",
+    "titleCN": "单色旭日图",
     "difficulty": 3
   },
   {
@@ -1267,7 +1417,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Confidence Band",
-    "titleCN": "Confidence Band",
+    "titleCN": "置信带",
     "difficulty": 4
   },
   {
@@ -1367,8 +1517,34 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Rainfall vs Evaporation",
-    "titleCN": "雨量Evaporation关系图",
+    "titleCN": "雨量蒸发量关系图",
     "difficulty": 4
+  },
+  {
+    "category": [
+      "candlestick",
+      "line"
+    ],
+    "id": "intraday-breaks-1",
+    "ts": true,
+    "tags": [],
+    "title": "Intraday Chart with Breaks",
+    "titleCN": "断轴上的日内走势图",
+    "difficulty": 4,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
+      "candlestick",
+      "line"
+    ],
+    "id": "intraday-breaks-2",
+    "ts": true,
+    "tags": [],
+    "title": "Intraday Chart with Breaks (II)",
+    "titleCN": "断轴上的日内走势图 (II)",
+    "difficulty": 4,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -1677,6 +1853,18 @@ export default [
   },
   {
     "category": [
+      "map",
+      "scatter"
+    ],
+    "id": "geo-choropleth-scatter",
+    "ts": true,
+    "tags": [],
+    "title": "Geo Choropleth and Scatter",
+    "titleCN": "地理坐标系上的等值区划图和散点图",
+    "difficulty": 5
+  },
+  {
+    "category": [
       "graph"
     ],
     "id": "graph-circular-layout",
@@ -1718,6 +1906,32 @@ export default [
     "title": "Line Race",
     "titleCN": "动态排序折线图",
     "difficulty": 5
+  },
+  {
+    "category": [
+      "map",
+      "pie"
+    ],
+    "id": "map-iceland-pie",
+    "ts": true,
+    "tags": [],
+    "title": "Pie Charts on GEO Map",
+    "titleCN": "在地图上显示饼图",
+    "difficulty": 5,
+    "since": "5.4.0"
+  },
+  {
+    "category": [
+      "matrix",
+      "line"
+    ],
+    "id": "matrix-sparkline",
+    "ts": false,
+    "tags": [],
+    "title": "Mini Line Charts (Sparkline) in Matrix",
+    "titleCN": "矩阵中的微型折线图",
+    "difficulty": 5,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -1772,7 +1986,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Drink Flavors",
-    "titleCN": "Drink Flavors",
+    "titleCN": "饮品风味分类",
     "difficulty": 5
   },
   {
@@ -1817,7 +2031,7 @@ export default [
     "id": "bar-rich-text",
     "ts": true,
     "tags": [],
-    "title": "Wheater Statistics",
+    "title": "Weather Statistics",
     "titleCN": "天气统计（富文本）",
     "difficulty": 6
   },
@@ -1924,6 +2138,20 @@ export default [
   },
   {
     "category": [
+      "matrix",
+      "bar",
+      "geo"
+    ],
+    "id": "matrix-mini-bar-geo",
+    "ts": true,
+    "tags": [],
+    "title": "Mini Bars and Geo in Matrix",
+    "titleCN": "矩阵坐标系下的微型条形图和地图",
+    "difficulty": 6,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "bar"
     ],
     "id": "mix-timeline-finance",
@@ -1963,6 +2191,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Bar Chart on Polar",
+    "titleCN": "极坐标系下的柱状图",
     "difficulty": 7
   },
   {
@@ -2029,7 +2258,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Graph Life Expectancy",
-    "titleCN": "Graph Life Expectancy",
+    "titleCN": "预期寿命",
     "difficulty": 7
   },
   {
@@ -2111,13 +2340,25 @@ export default [
   },
   {
     "category": [
+      "bar"
+    ],
+    "id": "bar-breaks-brush",
+    "ts": true,
+    "tags": [],
+    "title": "Bar Chart with Axis Breaks (Brush-enabled)",
+    "titleCN": "断轴上的柱状图（可刷选）",
+    "difficulty": 8,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "gauge"
     ],
     "id": "gauge-car",
     "ts": true,
     "tags": [],
     "title": "Gauge Car",
-    "titleCN": "Gauge Car",
+    "titleCN": "汽车仪表盘",
     "difficulty": 8
   },
   {
@@ -2141,6 +2382,18 @@ export default [
     "title": "Line Easing Visualizing",
     "titleCN": "缓动函数可视化",
     "difficulty": 8
+  },
+  {
+    "category": [
+      "line"
+    ],
+    "id": "line-fisheye-lens",
+    "ts": true,
+    "tags": [],
+    "title": "Fisheye Lens on Line Chart",
+    "titleCN": "折线图鱼眼放大",
+    "difficulty": 8,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -2228,7 +2481,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Master Painter Color Choices Throughout History",
-    "titleCN": "Master Painter Color Choices Throughout History",
+    "titleCN": "历代绘画大师的色彩运用",
     "difficulty": 9
   },
   {
@@ -2295,6 +2548,18 @@ export default [
   },
   {
     "category": [
+      "chord"
+    ],
+    "id": "chord-style",
+    "ts": true,
+    "tags": [],
+    "title": "Chord Style",
+    "titleCN": "和弦图样式",
+    "difficulty": 10,
+    "since": "6.0.0"
+  },
+  {
+    "category": [
       "scatter",
       "map"
     ],
@@ -2348,7 +2613,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "Multiple Funnels",
-    "titleCN": "Funnel",
+    "titleCN": "多漏斗图",
     "difficulty": 10
   },
   {
@@ -2360,28 +2625,6 @@ export default [
     "tags": [],
     "title": "GEO Beef Cuts",
     "titleCN": "庖丁解牛",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map"
-    ],
-    "id": "geo-lines",
-    "ts": false,
-    "tags": [],
-    "title": "Migration",
-    "titleCN": "模拟迁徙",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map"
-    ],
-    "id": "geo-map-scatter",
-    "ts": false,
-    "tags": [],
-    "title": "map and scatter share a geo",
-    "titleCN": "map and scatter share a geo",
     "difficulty": 10
   },
   {
@@ -2469,7 +2712,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Wave Animation",
-    "titleCN": null,
+    "titleCN": "波浪动画",
     "difficulty": 10
   },
   {
@@ -2523,53 +2766,11 @@ export default [
       "map",
       "lines"
     ],
-    "id": "lines-bmap",
-    "ts": true,
-    "tags": [
-      "bmap"
-    ],
-    "title": "A Hiking Trail in Hangzhou - Baidu Map",
-    "titleCN": "杭州热门步行路线 - 百度地图",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map",
-      "lines"
-    ],
-    "id": "lines-bmap-bus",
-    "ts": true,
-    "tags": [
-      "bmap"
-    ],
-    "title": "Bus Lines of Beijing - Baidu Map",
-    "titleCN": "北京公交路线 - 百度地图",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map",
-      "lines"
-    ],
-    "id": "lines-bmap-effect",
-    "ts": true,
-    "tags": [
-      "bmap"
-    ],
-    "title": "Bus Lines of Beijing - Line Effect",
-    "titleCN": "北京公交路线 - 线特效",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map",
-      "lines"
-    ],
     "id": "lines-ny",
     "ts": true,
     "tags": [],
-    "title": "Use lines to draw 1 million ny streets.",
-    "titleCN": "使用线图绘制近 100 万的纽约街道数据",
+    "title": "Use lines to draw 1 million New York streets",
+    "titleCN": "使用线图绘制近100万纽约街道数据",
     "difficulty": 10
   },
   {
@@ -2588,37 +2789,11 @@ export default [
     "category": [
       "map"
     ],
-    "id": "map-bin",
-    "ts": false,
-    "tags": [
-      "bmap"
-    ],
-    "title": "Binning on Map",
-    "titleCN": "Binning on Map",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map"
-    ],
     "id": "map-HK",
     "ts": true,
     "tags": [],
     "title": "Population Density of HongKong (2011)",
     "titleCN": "香港18区人口密度 （2011）",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "map"
-    ],
-    "id": "map-polygon",
-    "ts": false,
-    "tags": [
-      "bmap"
-    ],
-    "title": "Draw Polygon on Map",
-    "titleCN": "在地图上绘制多边形",
     "difficulty": 10
   },
   {
@@ -2634,18 +2809,6 @@ export default [
   },
   {
     "category": [
-      "map",
-      "pie"
-    ],
-    "id": "map-usa-pie",
-    "ts": true,
-    "tags": [],
-    "title": "Pie Charts on GEO Map",
-    "titleCN": "在地图上显示饼图",
-    "difficulty": 10
-  },
-  {
-    "category": [
       "map"
     ],
     "id": "map-usa-projection",
@@ -2654,6 +2817,18 @@ export default [
     "title": "USA Choropleth Map with Projection",
     "titleCN": "自定义地图投影",
     "difficulty": 10
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-periodic-table",
+    "ts": true,
+    "tags": [],
+    "title": "Periodic Table",
+    "titleCN": "元素周期表",
+    "difficulty": 10,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -2757,28 +2932,6 @@ export default [
   },
   {
     "category": [
-      "scatter"
-    ],
-    "id": "scatter-map",
-    "ts": false,
-    "tags": [],
-    "title": "Air Quality",
-    "titleCN": "全国主要城市空气质量",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "scatter"
-    ],
-    "id": "scatter-map-brush",
-    "ts": true,
-    "tags": [],
-    "title": "Scatter Map Brush",
-    "titleCN": "Scatter Map Brush",
-    "difficulty": 10
-  },
-  {
-    "category": [
       "parallel",
       "scatter"
     ],
@@ -2787,17 +2940,6 @@ export default [
     "tags": [],
     "title": "Scatter Matrix",
     "titleCN": "散点矩阵和平行坐标",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "scatter"
-    ],
-    "id": "scatter-weibo",
-    "ts": true,
-    "tags": [],
-    "title": "Sign in of weibo",
-    "titleCN": "微博签到数据点亮中国",
     "difficulty": 10
   },
   {
@@ -2830,7 +2972,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "ThemeRiver Lastfm",
-    "titleCN": "ThemeRiver Lastfm",
+    "titleCN": "Lastfm 主题河流图",
     "difficulty": 10
   },
   {
@@ -2940,7 +3082,7 @@ export default [
     "ts": true,
     "tags": [],
     "title": "How $3.7 Trillion is Spent",
-    "titleCN": "How $3.7 Trillion is Spent",
+    "titleCN": "3.7 万亿美元支出构成",
     "difficulty": 10
   },
   {
@@ -2996,7 +3138,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Circle Packing with d3",
-    "titleCN": "Circle Packing with d3",
+    "titleCN": "基于 d3 的圆形包络图",
     "difficulty": 11
   },
   {
@@ -3009,6 +3151,18 @@ export default [
     "title": "Custom Spiral Race",
     "titleCN": "自定义螺旋线竞速",
     "difficulty": 11
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-mbti",
+    "ts": true,
+    "tags": [],
+    "title": "MBTI Partner Compatibility",
+    "titleCN": "MBTI 伴侣相容性",
+    "difficulty": 11,
+    "since": "6.0.0"
   },
   {
     "category": [
@@ -3032,5 +3186,836 @@ export default [
     "title": "Logarithmic Regression",
     "titleCN": "对数回归（使用统计插件）",
     "difficulty": 16
+  },
+  {
+    "category": [
+      "scatter"
+    ],
+    "id": "effectScatter-map",
+    "ts": true,
+    "tags": [],
+    "noExplore": true,
+    "title": "Air Quality",
+    "titleCN": "全国主要城市空气质量",
+    "difficulty": 2
+  },
+  {
+    "category": [
+      "heatmap"
+    ],
+    "id": "heatmap-bmap",
+    "ts": false,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "Heatmap on Baidu Map Extension",
+    "titleCN": "热力图与百度地图扩展",
+    "difficulty": 3
+  },
+  {
+    "category": [
+      "heatmap"
+    ],
+    "id": "heatmap-map",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "Air Qulity",
+    "titleCN": "全国主要城市空气质量",
+    "difficulty": 3
+  },
+  {
+    "category": [
+      "matrix"
+    ],
+    "id": "matrix-mini-bar-data-collection",
+    "ts": true,
+    "tags": [],
+    "noExplore": true,
+    "title": "Matrix Header Data Collection (Mini Bar)",
+    "titleCN": "矩阵坐标系表头数据自动收集（以微型条形图为例）",
+    "difficulty": 3,
+    "since": "6.0.0"
+  },
+  {
+    "category": [],
+    "id": "doc-example/aria-decal",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/aria-decal-newspaper",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/aria-decal-simple",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/aria-pie",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/axis-label-align-min-max",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/axisPointer-handle-image",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/bar-dataZoom-filterMode",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/bar-large",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/bar-media-timeline",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/barGrid-barGap",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/candlestick-axisPointer",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/canvas-vs-svg",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/canvas-vs-svg-en",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/custom-transition-simple",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/data-transform-multiple-sort-bar",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/dataset-encode-simple0",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/geo-roam-indicator",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "geo roam indicator demo",
+    "difficulty": 10,
+    "since": "6.0.0"
+  },
+  {
+    "category": [],
+    "id": "doc-example/geo-svg-label-basic",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/geo-svg-layout-basic",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/geo-svg-named-basic",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/getting-started",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/graph-roam-indicator",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "graph roam indicator demo",
+    "difficulty": 10,
+    "since": "6.0.0"
+  },
+  {
+    "category": [],
+    "id": "doc-example/graphic-bounding",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/grid-outerBounds",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "grid outerBounds example",
+    "difficulty": 10,
+    "since": "6.0.0"
+  },
+  {
+    "category": [],
+    "id": "doc-example/label-position",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/line-stack-tiled",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/map-example",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/map-visualMap-continuous",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/map-visualMap-continuous-text",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/map-visualMap-pieces",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/map-visualMap-piecewise-text",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/matrix-graph-box",
+    "ts": true,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10,
+    "since": "6.0.0"
+  },
+  {
+    "category": [],
+    "id": "doc-example/mix-timeline-all",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/parallel-all",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-clip",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-graphicType",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-patternSize",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-position",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-repeat",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-repeatDirection",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-repeatLayout",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-symbolBoundingDataArray",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pictorialBar-symbolSize",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pie-highlight",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pie-label-bleedMargin",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pie-label-distanceToLabelLine",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pie-label-margin",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/pie-media",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/polar-anticlockwise",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/polar-end-angle",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/polar-start-angle",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/radar",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-dataZoom-all",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-jitter-avoidOverlap",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-tutorial-dataZoom-1",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-tutorial-dataZoom-2",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-tutorial-dataZoom-3",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-visualMap-categories",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/scatter-visualMap-piecewise",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/sunburst-color",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/sunburst-highlight-ancestor",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/sunburst-highlight-descendant",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/sunburst-label-align",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/sunburst-simple",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/text-block-fragment",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/text-fregment-align",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/text-options",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/timeline-dynamic-series",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/title-block",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/treemap-borderColor",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-async",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-dynamic-data",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-loading",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step0",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step1",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step2",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step3",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step4",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/tutorial-styling-step5",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [],
+    "id": "doc-example/value-animation-simple",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map"
+    ],
+    "id": "geo-lines",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "Migration",
+    "titleCN": "模拟迁徙",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map"
+    ],
+    "id": "geo-map-scatter",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "map and scatter share a geo",
+    "titleCN": "map and scatter share a geo",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map",
+      "lines"
+    ],
+    "id": "lines-bmap",
+    "ts": true,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "A Hiking Trail in Hangzhou - Baidu Map",
+    "titleCN": "杭州热门步行路线 - 百度地图",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map",
+      "lines"
+    ],
+    "id": "lines-bmap-bus",
+    "ts": true,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "Bus Lines of Beijing - Baidu Map",
+    "titleCN": "北京公交路线 - 百度地图",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map",
+      "lines"
+    ],
+    "id": "lines-bmap-effect",
+    "ts": true,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "Bus Lines of Beijing - Line Effect",
+    "titleCN": "北京公交路线 - 线特效",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map"
+    ],
+    "id": "map-bin",
+    "ts": false,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "Binning on Map",
+    "titleCN": "在地图上显示分箱图",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "map"
+    ],
+    "id": "map-polygon",
+    "ts": false,
+    "tags": [
+      "bmap"
+    ],
+    "noExplore": true,
+    "title": "Draw Polygon on Map",
+    "titleCN": "在地图上绘制多边形",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "scatter"
+    ],
+    "id": "scatter-map",
+    "ts": false,
+    "tags": [],
+    "noExplore": true,
+    "title": "Air Quality",
+    "titleCN": "全国主要城市空气质量",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "scatter"
+    ],
+    "id": "scatter-map-brush",
+    "ts": true,
+    "tags": [],
+    "noExplore": true,
+    "title": "Scatter Map Brush",
+    "titleCN": "Scatter Map Brush",
+    "difficulty": 10
+  },
+  {
+    "category": [
+      "scatter"
+    ],
+    "id": "scatter-weibo",
+    "ts": true,
+    "tags": [],
+    "noExplore": true,
+    "title": "Sign in of weibo",
+    "titleCN": "微博签到数据点亮中国",
+    "difficulty": 10
   }
 ]

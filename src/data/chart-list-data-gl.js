@@ -1,7 +1,44 @@
 
 /* eslint-disable */
-// THIS FILE IS GENERATED, DON'T MODIFY */
+
+// -------------------------------------------------
+// ! THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT !
+// -------------------------------------------------
+
 export default [
+  {
+    "category": [
+      "globe"
+    ],
+    "id": "globe-echarts-gl-hello-world",
+    "ts": false,
+    "tags": [],
+    "title": "ECharts-GL Hello World",
+    "titleCN": "ECharts GL 入门",
+    "difficulty": 0
+  },
+  {
+    "category": [
+      "globe"
+    ],
+    "id": "globe-atmosphere",
+    "ts": false,
+    "tags": [],
+    "title": "Globe with Atmosphere",
+    "titleCN": "大气层显示",
+    "difficulty": 1
+  },
+  {
+    "category": [
+      "globe"
+    ],
+    "id": "globe-layers",
+    "ts": false,
+    "tags": [],
+    "title": "Globe Layers",
+    "titleCN": "地球图层",
+    "difficulty": 1
+  },
   {
     "category": [
       "globe"
@@ -10,7 +47,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Animating Contour on Globe",
-    "titleCN": "Animating Contour on Globe",
+    "titleCN": "地球等值线动画",
     "difficulty": 10
   },
   {
@@ -32,7 +69,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Bar3D - Global Population",
-    "titleCN": "Bar3D - Global Population",
+    "titleCN": "Bar3D - 全球人口分布",
     "difficulty": 10
   },
   {
@@ -43,7 +80,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Bar3D - Myth",
-    "titleCN": "星云",
+    "titleCN": "Bar3D - 星云",
     "difficulty": 10
   },
   {
@@ -54,7 +91,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Noise modified from marpi's demo",
-    "titleCN": "Noise modified from marpi's demo",
+    "titleCN": "基于 marpi 示例修改的噪声效果",
     "difficulty": 10
   },
   {
@@ -65,7 +102,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Bar3D - Punch Card",
-    "titleCN": "Bar3D - Punch Card",
+    "titleCN": "Bar3D - 打卡统计柱状图",
     "difficulty": 10
   },
   {
@@ -77,7 +114,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "Bar3D - Simplex Noise",
-    "titleCN": "Bar3D - Simplex Noise",
+    "titleCN": "Bar3D - 单纯形噪声",
     "difficulty": 10
   },
   {
@@ -88,7 +125,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Voxelize image",
-    "titleCN": "Voxelize image",
+    "titleCN": "图像体素化",
     "difficulty": 10
   },
   {
@@ -133,7 +170,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Global Population - Bar3D on Globe",
-    "titleCN": "Global Population - Bar3D on Globe",
+    "titleCN": "全球人口分布 - 地球上的 Bar3D",
     "difficulty": 10
   },
   {
@@ -166,22 +203,11 @@ export default [
     "category": [
       "globe"
     ],
-    "id": "globe-atmosphere",
-    "ts": false,
-    "tags": [],
-    "title": "Globe with Atmosphere",
-    "titleCN": "大气层显示",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "globe"
-    ],
     "id": "globe-contour-paint",
     "ts": false,
     "tags": [],
     "title": "Contour Paint",
-    "titleCN": "Contour Paint",
+    "titleCN": "等值线渲染",
     "difficulty": 10
   },
   {
@@ -203,29 +229,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Globe Displacement",
-    "titleCN": "Globe Displacement",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "globe"
-    ],
-    "id": "globe-echarts-gl-hello-world",
-    "ts": false,
-    "tags": [],
-    "title": "ECharts-GL Hello World",
-    "titleCN": "ECharts-GL Hello World",
-    "difficulty": 10
-  },
-  {
-    "category": [
-      "globe"
-    ],
-    "id": "globe-layers",
-    "ts": false,
-    "tags": [],
-    "title": "Globe Layers",
-    "titleCN": "Globe Layers",
+    "titleCN": "地形位移",
     "difficulty": 10
   },
   {
@@ -236,7 +240,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Moon",
-    "titleCN": "Moon",
+    "titleCN": "月球",
     "difficulty": 10
   },
   {
@@ -258,8 +262,8 @@ export default [
     "ts": false,
     "tags": [],
     "theme": "dark",
-    "title": "GraphGL GPU Layout",
-    "titleCN": "GraphGL GPU Layout",
+    "title": "GraphGL - GPU Layout",
+    "titleCN": "GraphGL - GPU 布局",
     "difficulty": 10
   },
   {
@@ -271,7 +275,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "GraphGL - Large Internet",
-    "titleCN": "GraphGL - Large Internet",
+    "titleCN": "GraphGL - 大规模互联网图谱",
     "difficulty": 10
   },
   {
@@ -283,7 +287,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "NPM Dependencies with graphGL",
-    "titleCN": "1w 节点 2w7 边的NPM 依赖图",
+    "titleCN": "1w 节点 2w7 边的 NPM 依赖图",
     "difficulty": 10
   },
   {
@@ -305,7 +309,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Image to Bar3D",
-    "titleCN": "Image to Bar3D",
+    "titleCN": "图像转三维柱状图",
     "difficulty": 10
   },
   {
@@ -316,7 +320,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Iron globe",
-    "titleCN": "Iron globe",
+    "titleCN": "铁质感地球",
     "difficulty": 10
   },
   {
@@ -326,8 +330,8 @@ export default [
     "id": "line3d-orthographic",
     "ts": false,
     "tags": [],
-    "title": "Orthographic Projection",
-    "titleCN": "三维折线图正交投影",
+    "title": "Line3D - Orthographic Projection",
+    "titleCN": "三维折线图 - 正交投影",
     "difficulty": 10
   },
   {
@@ -381,8 +385,8 @@ export default [
     "id": "linesGL-ny",
     "ts": false,
     "tags": [],
-    "title": "Use linesGL to draw 1 million ny streets.",
-    "titleCN": "实时交互的纽约街道可视化",
+    "title": "Use linesGL to draw 1 million New York streets",
+    "titleCN": "LinesGL - 实时交互的纽约街道可视化",
     "difficulty": 10
   },
   {
@@ -404,7 +408,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Buildings",
-    "titleCN": "Buildings",
+    "titleCN": "三维建筑",
     "difficulty": 10
   },
   {
@@ -415,7 +419,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Wood City",
-    "titleCN": "Wood City",
+    "titleCN": "木质风格城市",
     "difficulty": 10
   },
   {
@@ -437,7 +441,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Metal Bar3D",
-    "titleCN": "Metal Bar3D",
+    "titleCN": "三维柱状图 - 金属质感",
     "difficulty": 10
   },
   {
@@ -471,7 +475,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "Scatter3D",
-    "titleCN": "Scatter3D",
+    "titleCN": "三维散点图",
     "difficulty": 10
   },
   {
@@ -492,8 +496,8 @@ export default [
     "id": "scatter3d-globe-population",
     "ts": false,
     "tags": [],
-    "title": "Scatter3D - Globe Population",
-    "titleCN": "Scatter3D - Globe Population",
+    "title": "Scatter3D - Global Population",
+    "titleCN": "三维散点图 - 全球人口分布",
     "difficulty": 10
   },
   {
@@ -505,7 +509,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "Scatter3D - Orthographic",
-    "titleCN": "三维散点图正交投影",
+    "titleCN": "三维散点图 - 正交投影",
     "difficulty": 10
   },
   {
@@ -528,7 +532,7 @@ export default [
     "tags": [],
     "theme": "dark",
     "title": "Scatter3D - Simplex Noise",
-    "titleCN": "Scatter3D - Simplex Noise",
+    "titleCN": "三维散点图 - 单纯形噪声",
     "difficulty": 10
   },
   {
@@ -584,7 +588,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Stacked Bar3D",
-    "titleCN": "Stacked Bar3D",
+    "titleCN": "三维堆叠柱状图",
     "difficulty": 10
   },
   {
@@ -661,7 +665,7 @@ export default [
     "ts": false,
     "tags": [],
     "title": "Transparent Bar3D",
-    "titleCN": "Transparent Bar3D",
+    "titleCN": "三维柱状图 - 透明效果",
     "difficulty": 10
   }
 ]

@@ -7,26 +7,22 @@
         <img class="chart-area" src="../asset/placeholder.jpg" />
       </picture>
     </a>
-    <div>
-      <div class="example-langs">
-        <a class="js" :href="exampleLink" target="_blank">JS</a>
-        <a
-          class="ts"
-          :href="exampleLink + '&lang=ts'"
-          v-if="example.ts"
-          target="_blank"
-          >TS</a
-        >
+    <div class="example-info">
+      <div class="example-version-since" v-if="hasVersionSince">
+        {{ versionSinceBanner }}
       </div>
       <div>
         <div class="example-title" :title="title">{{ title }}</div>
-        <div class="example-subtitle" v-if="showSubtitle">{{ subtitle }}</div>
+        <div v-if="showSubtitle" class="example-subtitle" :title="subtitle">
+          {{ subtitle }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { compareVersions } from 'compare-versions';
 import { store } from '../common/store';
 import { URL_PARAMS } from '../common/config';
 
@@ -48,6 +44,17 @@ export default {
 
     subtitle() {
       return this.example.title || '';
+    },
+
+    hasVersionSince() {
+      return (
+        this.example.since &&
+        compareVersions(store.echartsFullVersion, this.example.since) >= 0
+      );
+    },
+
+    versionSinceBanner() {
+      return 'v' + this.example.since + '+';
     },
 
     exampleTheme() {
@@ -140,34 +147,17 @@ export default {
     padding-left: 10px;
   }
 
-  .example-langs {
-    margin-top: 10px;
+  .example-version-since {
+    margin-top: 12px;
     float: right;
-
-    & > * {
-      display: inline-block;
-      padding: 1px 6px;
-      margin-left: 5px;
-      vertical-align: middle;
-      border-radius: 3px;
-      font-size: 10px;
-      // font-weight: bold;
-      opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
-
-    .js {
-      background: #f7df1e;
-      color: #444;
-    }
-
-    .ts {
-      background: #3178c6;
-      color: #eee;
-    }
+    padding: 1px 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+    font-size: 10px;
+    background: #fb628b;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
   }
 
   .example-info {

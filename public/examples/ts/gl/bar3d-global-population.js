@@ -1,7 +1,7 @@
 /*
 title: Bar3D - Global Population
 category: bar3D
-titleCN: Bar3D - Global Population
+titleCN: Bar3D - 全球人口分布
 */
 
 $.getJSON(ROOT_PATH + '/data-gl/asset/data/population.json', function (data) {
@@ -29,7 +29,7 @@ $.getJSON(ROOT_PATH + '/data-gl/asset/data/population.json', function (data) {
           intensity: 0
         },
         ambientCubemap: {
-          texture: 'data-gl/asset/canyon.hdr',
+          texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',
           exposure: 1,
           diffuseIntensity: 0.5
         }

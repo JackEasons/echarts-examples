@@ -8,7 +8,7 @@ difficulty: 4
 $.when(
   $.get(ROOT_PATH + '/data/asset/data/life-expectancy-table.json'),
   $.getScript(
-    'https://fastly.jsdelivr.net/npm/echarts-simple-transform/dist/ecSimpleTransform.min.js'
+    CDN_PATH + 'echarts-simple-transform/dist/ecSimpleTransform.min.js'
   )
 ).done(function (res) {
   run(res[0]);
@@ -81,7 +81,7 @@ function run(_rawData) {
       type: 'category'
     },
     grid: {
-      bottom: 100
+      bottom: 140
     },
     legend: {
       selected: { detail: false }
@@ -92,7 +92,8 @@ function run(_rawData) {
       },
       {
         type: 'slider',
-        height: 20
+        height: 20,
+        bottom: 60
       }
     ],
     series: [

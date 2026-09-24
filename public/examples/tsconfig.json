@@ -6,7 +6,9 @@
     "allowJs": true,
     "checkJs": false,
     "pretty": true,
-    "outDir": "./js/",
+    "removeComments": false,
+    "rootDir": "./ts",
+    "outDir": "./js",
     "baseUrl": "./"
   },
   "include": ["./ts/**/*.ts", "./ts/**/*.js", "./types/**/*.d.ts"]

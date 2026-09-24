@@ -14,6 +14,7 @@ const { compareImage } = require('../common/compareImage');
 const { runTasks } = require('../common/task');
 const nStatic = require('node-static');
 const shell = require('shelljs');
+const assert = require('assert');
 
 function optionToJson(obj, prop) {
   let json = JSON.stringify(
@@ -95,6 +96,15 @@ async function convertToWebP(filePath) {
   ]);
 }
 
+function unlink(filePath) {
+  try {
+    fs.unlinkSync(filePath);
+  } catch (e) {
+    console.error('[ERROR] fs.unlinkSync("' + filePath + '");');
+    console.error(chalk.red(e));
+  }
+}
+
 async function takeScreenshot(
   browser,
   ffmpeg,
@@ -145,7 +155,8 @@ async function takeScreenshot(
 
   if (hasVideo) {
     url += `&start=${videoStart}&end=${videoEnd}`;
-    await page._client.send('Page.setDownloadBehavior', {
+    const client = await page.createCDPSession();
+    await client.send('Page.setDownloadBehavior', {
       behavior: 'allow',
       downloadPath: thumbDir
     });
@@ -157,6 +168,7 @@ async function takeScreenshot(
   // console.log(url);
   await page.evaluateOnNewDocument(function (resourceRootPath) {
     window.ROOT_PATH = resourceRootPath;
+    window.CDN_PATH = 'https://fastly.jsdelivr.net/npm/';
   }, resourceRootPath);
 
   page.on('pageerror', function (err) {
@@ -170,13 +182,13 @@ async function takeScreenshot(
     }
   });
 
-  console.log(`Generating ${theme} thumbs.....${basename}`);
+  console.log(`[--- Generating ${theme} thumbs: ${basename} ---]`);
   // https://stackoverflow.com/questions/46160929/puppeteer-wait-for-all-images-to-load-then-take-screenshot
   try {
     try {
       await page.goto(url, {
         waitUntil: 'networkidle0',
-        timeout: 20000
+        timeout: 30000
       });
     } catch (e) {
       console.error(chalk.red(e));
@@ -203,7 +215,7 @@ async function takeScreenshot(
         'utf-8'
       );
     } catch (e) {
-      console.error(chalk.red('Failed to generate option'));
+      console.error(chalk.red('Failed to generate option ' + fileBase));
       console.error(chalk.red(e));
     }
 
@@ -229,12 +241,8 @@ async function takeScreenshot(
       }
     }
 
-    try {
-      fs.unlinkSync(filePathOld);
-    } catch (e) {}
-
-    fs.unlinkSync(filePathTmpRaw);
-    fs.unlinkSync(filePathTmp);
+    unlink(filePathTmpRaw);
+    unlink(filePathTmp);
 
     if (hasVideo) {
       await checkingDownload;
@@ -245,111 +253,158 @@ async function takeScreenshot(
       // fs.writeFileSync(webpFile, ffmpeg.FS('readFile', `${basename}.webp`));
       // ffmpeg.FS("unlink", `${basename}.webm`)
       // ffmpeg.FS("unlink", `${basename}.webp`)
-      shell.exec(
-        `ffmpeg -y -i "${fileBase}.webm" -s ${OUTPUT_IMAGE_WIDTH}x${OUTPUT_IMAGE_HEIGHT} -f webp "${fileBase}.webp"`
-      );
+      console.log('Running ffmpeg to convert webm to webp');
       try {
-        fs.unlinkSync(webmFile);
-      } catch (e) {}
+        shell.exec(
+          `ffmpeg -y -i "${fileBase}.webm" -s ${OUTPUT_IMAGE_WIDTH}x${OUTPUT_IMAGE_HEIGHT} -f webp "${fileBase}.webp"`
+        );
+      } catch (e) {
+        console.error(chalk.red(e));
+      }
+      console.log(`WebP file created: ${fileBase}.webp`);
+
+      unlink(webmFile);
     }
   } catch (e) {
-    console.error(url);
-    console.error(e.toString());
+    console.error('[ERROR] on URL: ' + url);
+    console.error(e);
   }
   await page.close();
 }
 
 (async () => {
+
   const rootDir = path.join(__dirname, '../');
   // TODO puppeteer will have Navigation Timeout Exceeded: 30000ms exceeded error in these examples.
   const screenshotBlackList = [];
 
+  let server; // Declare server at function scope
+
+  process.on('SIGINT', function () {
+    console.log('SIGINT Close.');
+    if (server) {
+      server.close();
+    }
+    // Close through ctrl + c;
+    process.exit();
+  });
+
   const examplesRoot = `${rootDir}public/examples`;
-  const files = await globby(`js/${isGL ? 'gl/' : ''}*.js`, {
+  const filesPrimary = await globby(`js/${isGL ? 'gl/' : ''}*.js`, {
     cwd: examplesRoot,
     absolute: true
   });
+  const filesPrimaryBasePath = path.join(examplesRoot, `js${isGL ? '/gl' : ''}`);
+  const filesInDocExampleFolder = isGL ? [] : await globby(`js/doc-example/*.js`, {
+    cwd: examplesRoot,
+    absolute: true
+  });
+  const filesInDocExampleFolderBasePath = path.join(examplesRoot, 'js');
 
   const exampleList = [];
+  const thumbTasks = [];
 
-  let thumbTasks = [];
-
-  for (let theme of themeList) {
-    for (let fileName of files) {
-      const basename = path.basename(fileName, '.js');
-
-      // Remove mapbox temporary
-      if (
-        basename.indexOf('mapbox') >= 0 ||
-        basename.indexOf('shanghai') >= 0 ||
-        basename === 'lines3d-taxi-routes-of-cape-town' ||
-        basename === 'lines3d-taxi-chengdu' ||
-        basename === 'map3d-colorful-cities' ||
-        // TODO Examples that can't work temporary.
-        basename === 'bar3d-music-visualization'
-      ) {
-        continue;
-      }
-
-      const tsFile = `${examplesRoot}/ts/${isGL ? 'gl/' : ''}${basename}.ts`;
-      const hasTs = fs.existsSync(tsFile);
-
-      let fmResult;
-      try {
-        const code = fs.readFileSync(fileName, 'utf-8');
-        fmResult = matter(code, {
-          delimiters: ['/*', '*/']
-        });
-      } catch (e) {
-        fmResult = {
-          data: {}
-        };
-      }
-
-      try {
-        const difficulty =
-          fmResult.data.difficulty != null ? fmResult.data.difficulty : 10;
-        const category = (fmResult.data.category || '')
-          .split(/,/g)
-          .map((a) => a.trim())
-          .filter((a) => !!a);
-        if (!exampleList.find((item) => item.id === basename)) {
-          // Avoid add multiple times when has multiple themes.
-          exampleList.push({
-            category: category,
-            id: basename,
-            ts: hasTs,
-            tags: (fmResult.data.tags || '')
-              .split(/,/g)
-              .map((a) => a.trim())
-              .filter((a) => !!a),
-            theme: fmResult.data.theme,
-            title: fmResult.data.title,
-            titleCN: fmResult.data.titleCN,
-            difficulty: +difficulty
-          });
-        }
-      } catch (e) {
-        throw new Error(e.toString());
-      }
-
-      if (
-        !matchPattern ||
-        (matchPattern.some(function (pattern) {
-          return minimatch(basename, pattern);
-        }) &&
-          screenshotBlackList.indexOf(basename) < 0)
-      ) {
-        thumbTasks.push({
-          theme,
-          fmResult,
-          basename
-        });
-      }
+  for (const theme of themeList) {
+    for (const fileAbsPath of filesPrimary) {
+      handleSingleFile(fileAbsPath, filesPrimaryBasePath, theme, false);
     }
   }
+  for (const fileAbsPath of filesInDocExampleFolder) {
+    handleSingleFile(fileAbsPath, filesInDocExampleFolderBasePath, null, true);
+  }
+
+  function handleSingleFile(fileAbsPath, fileAbsBasePath, thumbTheme, forceNoExplore) {
+    const relativePath = path.relative(fileAbsBasePath, fileAbsPath);
+    assert(relativePath !== '' && relativePath.indexOf('.') !== 0 && !path.isAbsolute(relativePath));
+    const exampleId = relativePath.replace(/\.js$/, '');
+
+    // Remove mapbox temporary
+    if (
+      exampleId.indexOf('mapbox') >= 0 ||
+      exampleId.indexOf('shanghai') >= 0 ||
+      exampleId === 'lines3d-taxi-routes-of-cape-town' ||
+      exampleId === 'lines3d-taxi-chengdu' ||
+      exampleId === 'map3d-colorful-cities' ||
+      // TODO Examples that can't work temporary.
+      exampleId === 'bar3d-music-visualization'
+    ) {
+      return;
+    }
+
+    const tsFile = path.normalize(`${examplesRoot}/ts/${isGL ? 'gl/' : ''}${exampleId}.ts`);
+    const hasTs = fs.existsSync(tsFile);
+
+    let fmResult;
+    try {
+      const code = fs.readFileSync(fileAbsPath, 'utf-8');
+      fmResult = matter(code, {
+        delimiters: ['/*', '*/']
+      });
+    } catch (e) {
+      fmResult = {
+        data: {}
+      };
+    }
+
+    // `fmResult.data.noExplore` is boolean if writing `/* noExplore: true */` in code.
+    const noExplore = forceNoExplore || fmResult.data.noExplore;
+
+    try {
+      const difficulty =
+        fmResult.data.difficulty != null ? fmResult.data.difficulty : 10;
+      const category = (fmResult.data.category || '')
+        .split(/,/g)
+        .map((a) => a.trim())
+        .filter((a) => !!a);
+
+      if (!exampleList.find((item) => item.id === exampleId)) {
+        // Avoid add multiple times when has multiple themes.
+        exampleList.push({
+          category: category,
+          id: exampleId,
+          ts: hasTs,
+          tags: (fmResult.data.tags || '')
+            .split(/,/g)
+            .map((a) => a.trim())
+            .filter((a) => !!a),
+          noExplore: noExplore,
+          theme: fmResult.data.theme,
+          title: fmResult.data.title,
+          titleCN: fmResult.data.titleCN,
+          difficulty: +difficulty,
+          since: fmResult.data.since,
+        });
+      }
+    } catch (e) {
+      throw new Error(e.toString());
+    }
+
+    if (
+      !noExplore
+      && (
+        !matchPattern
+        || (
+          matchPattern.some(function (pattern) {
+            return minimatch(exampleId, pattern);
+          })
+          && screenshotBlackList.indexOf(exampleId) < 0
+        )
+      )
+    ) {
+      thumbTasks.push({
+        theme: thumbTheme,
+        fmResult,
+        basename: exampleId
+      });
+    }
+  } // End of handleSingleFile
 
   exampleList.sort(function (a, b) {
+    const aNoExplore = a.noExplore ? 1 : 0;
+    const bNoExplore = b.noExplore ? 1 : 0;
+    if (aNoExplore !== bNoExplore) {
+      return aNoExplore - bNoExplore;
+    }
     if (a.difficulty === b.difficulty) {
       return a.id.localeCompare(b.id);
     }
@@ -358,8 +413,13 @@ async function takeScreenshot(
 
   const code = `
 /* eslint-disable */
-// THIS FILE IS GENERATED, DON'T MODIFY */
-export default ${JSON.stringify(exampleList, null, 2)}`;
+
+// -------------------------------------------------
+// ! THIS FILE IS AUTO-GENERATED. DO NOT MODIFY IT !
+// -------------------------------------------------
+
+export default ${JSON.stringify(exampleList, null, 2)}
+`;
 
   if (!matchPattern) {
     fs.writeFileSync(
@@ -375,7 +435,7 @@ export default ${JSON.stringify(exampleList, null, 2)}`;
   // Do screenshot
   if (BUILD_THUMBS) {
     const fileServer = new nStatic.Server(rootDir);
-    const server =
+    server =
       BUILD_THUMBS &&
       require('http').createServer(function (request, response) {
         request
@@ -390,7 +450,7 @@ export default ${JSON.stringify(exampleList, null, 2)}`;
     const browser = await puppeteer.launch({
       headless: false,
       args: [
-        '--headless',
+        '--headless', // If network error always happens, try to comment this line to use headful mode
         '--hide-scrollbars',
         // https://github.com/puppeteer/puppeteer/issues/4913
         '--use-gl=egl',
@@ -465,11 +525,5 @@ export default ${JSON.stringify(exampleList, null, 2)}`;
     await browser.close();
     // ffmpeg.exit(0);
   }
-})();
 
-process.on('SIGINT', function () {
-  console.log('Closing');
-  server.close();
-  // Close through ctrl + c;
-  process.exit();
-});
+})();
